@@ -33,11 +33,13 @@ jobs:
           username: oauth
           password: ${{ secrets.OAUTH_TOKEN }}
       - name: Build and push
+        id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: pro-bot:latest
+          tags: ${{ secrets.CR_YANDEX_REPO }}/bot-app:latest
+          file: Dockerfile
 
       - name: Deploy to server
         uses: appleboy/ssh-action@master
