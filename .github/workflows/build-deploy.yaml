@@ -48,5 +48,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            sudo docker pull ${{ secrets.CR_YANDEX_REPO }}/bot-app:latest
             sudo docker stop pro-bot
-            docker run pro-bot
+            sudo docker run pro-bot
