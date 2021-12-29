@@ -48,7 +48,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker login --username oauth --password {{ secrets.OAUTH_TOKEN }} ${{ secrets.CR_YANDEX_REPO }}
+            sudo docker login --username oauth --password ${{ secrets.OAUTH_TOKEN }} ${{ secrets.CR_YANDEX_REPO }}
             sudo docker pull ${{ secrets.CR_YANDEX_REPO }}/bot-app:latest
             sudo docker stop pro-bot
             sudo docker run pro-bot
