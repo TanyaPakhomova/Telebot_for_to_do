@@ -51,4 +51,4 @@ jobs:
             sudo docker login --username oauth --password ${{ secrets.OAUTH_TOKEN }} ${{ secrets.CR_YANDEX_REPO }}
             sudo docker pull ${{ secrets.CR_YANDEX_REPO }}/bot-app:latest
             sudo docker stop pro-bot
-            sudo docker run pro-bot
+            sudo docker run ${{ secrets.CR_YANDEX_REPO }}/bot-app:latest
