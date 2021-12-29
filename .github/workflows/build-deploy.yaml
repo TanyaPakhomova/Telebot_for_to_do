@@ -32,9 +32,13 @@ jobs:
           registry: ${{ secrets.CR_YANDEX_REPO }}
           username: oauth
           password: ${{ secrets.OAUTH_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: pro-bot:latest
 
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
